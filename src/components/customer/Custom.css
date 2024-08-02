@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.registration {
+  width: 100vw;
+  height: 91.5vh;
+  background-color: rgb(7, 126, 92);
+  
+
+  
+}
+
+.btn-register{
+    background-color: rgb(7, 126, 92);
+    padding: 10px;
+    margin-top: 2rem;
+    color: white;
+    margin-left: 14px;
+    text-align: center;
+    width: 17rem;
+    border-radius: 5px;
+}
+
+
