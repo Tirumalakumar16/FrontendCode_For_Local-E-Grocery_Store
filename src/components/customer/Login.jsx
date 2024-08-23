@@ -1,6 +1,6 @@
-import { React, useEffect, useState } from "react";
+import { React, useCallback, useEffect, useState } from "react";
 
-import { postRequest, getAuthToken } from "../jsCode/Customer";
+import { postRequest, getAuthToken, getRequest } from "../jsCode/Customer";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 
@@ -9,9 +9,11 @@ function Login() {
 
   useEffect(() => {
     if (getAuthToken() != null && getAuthToken() != "null") {
-      navigate("/home");
+      setTimeout(() => {
+        navigate("/home");
+      }, 1000);
     }
-  });
+  }, []);
 
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +28,28 @@ function Login() {
     // console.log(e.target.value);
     setPassword(e.target.value);
   };
+  //
+  //this is for the navbar roles to decide which navbar to show and which to hide
+  // this will be called when the user logs in
+  // this will store the roles in the local storage
+  // and then navigate to the home page
+  // if the user is already logged in then it will navigate to the home page
+  let handleNavRoles = useCallback(() => {
+    getRequest(
+      "GET",
+      `http://localhost:8888/www.localGrocery.com/identity/api/identity`
+    )
+      .then((response) => {
+        // console.log(response.data);
+        localStorage.setItem("navBarResult", JSON.stringify(response.data));
+      })
+      .catch((message) => console.log(message));
+  }, []);
 
+  // Login function to handle the login of the user and to store the token in the local storage
+  //  and to navigate to the home page
+  // if the user is already logged in then it will navigate to the home page
+  //  and if the user is not logged in then it will show the alert message
   let handleLogin = (e) => {
     e.preventDefault();
     postRequest(
@@ -40,7 +63,10 @@ function Login() {
     )
       .then((response) => {
         localStorage.setItem("localCart", response.data);
-        navigate("/home");
+        handleNavRoles();
+        setTimeout(() => {
+          navigate("/home");
+        }, 500);
 
         console.log(response.data);
       })
@@ -52,7 +78,7 @@ function Login() {
     <>
       <NavBar />
 
-      <div className="registration  flex flex-col justify-center items-center">
+      <div className="flex flex-col items-center justify-center registration">
         <p className="font-bold mb-[15px] text-xl">
           Welcome To Local Grocery Store
         </p>
@@ -92,8 +118,10 @@ function Login() {
               </div>
               <div className="text-sm ml-[30px] mt-[1rem]">
                 Don't have an account?
-                <span className="text-green-700">
-                  <a href="/register">Register</a>
+                <span className="text-green-700 underline">
+                  <a href="/register">
+                    <strong> Register</strong>
+                  </a>
                 </span>
               </div>
             </form>

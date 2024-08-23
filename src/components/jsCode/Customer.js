@@ -10,7 +10,7 @@ export const setAuthToken = (token) =>{
 
 //Get Request
 export const getRequest = (method , url , data )=>{
-     let headers ={}
+     let headers = {}
 
      if(getAuthToken !== null && getAuthToken !== 'null') {
         headers = {"Authorization" : `Bearer ${getAuthToken()}`}

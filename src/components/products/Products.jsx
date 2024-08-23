@@ -16,11 +16,11 @@ function Products() {
         
     }
   },[])
-  let [category, setcategory] = useState("");
+  
   let [products, setProducts] = useState([]);
   let [pageNo,setPageNo] = useState(1)
 
-  
+  let [category, setcategory] = useState("");
 
   let handleSearch1 = (e) => {
     setcategory(e.target.value);
@@ -71,7 +71,7 @@ function Products() {
      <LogiNav />
     <div>
       <div className="flex items-center justify-center mt-10">
-        <label htmlFor="" className="text-3xl font-bold mr-10">
+        <label htmlFor="" className="mr-10 text-3xl font-bold">
           Category:
         </label>
         <input
@@ -84,10 +84,10 @@ function Products() {
       </div>
 
       <div className="mt-8 rounded-lg ">
-        <table className=" w-full border border-gray-600 rounded-lg  text-center ">
-          <thead className="bg-gray-300 border border-gray-100 text-center">
+        <table className="w-full text-center border border-gray-600 rounded-lg ">
+          <thead className="text-center bg-gray-300 border border-gray-100">
             <tr>
-              <th className="p-2  border border-gray-400">Product Name</th>
+              <th className="p-2 border border-gray-400">Product Name</th>
               <th className="border border-gray-400">Price</th>
               <th className="border border-gray-400">Available in KG's</th>
               <th className="border border-gray-400 ">Category</th>
@@ -96,7 +96,7 @@ function Products() {
             </tr>
           </thead>
 
-          <tbody className="border border-gray-300 bg-gray-100">
+          <tbody className="bg-gray-100 border border-gray-300">
             {products
               .filter((product) =>
                 product.category.toLowerCase().includes(category)
@@ -105,13 +105,13 @@ function Products() {
                 return (
                   <>
                     <tr className="border-b-4 border-gray-300" key={product.id}>
-                      <td className="flex justify-start items-center p-4">
+                      <td className="flex items-center justify-start p-4">
                         {/* <img
                           className="w-[200px] h-[100px] rounded-lg bd-cover"
                           src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
                           alt="movie"
                         /> */}
-                        <div className="text-xl  ml-5 ">
+                        <div className="ml-5 text-xl ">
                           {product.productName}
                         </div>
                       </td>

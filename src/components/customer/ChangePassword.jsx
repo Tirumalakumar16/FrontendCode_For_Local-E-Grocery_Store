@@ -93,7 +93,6 @@ function ChangePassword() {
                   placeholder="Confirm New Password"
                   onChange={handleNewPassword1}
                   value={newPassword1}
-                 
                   required
                 />
               </div>

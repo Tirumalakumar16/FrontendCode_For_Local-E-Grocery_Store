@@ -5,8 +5,8 @@ import { getRequest } from '../jsCode/Customer'
 function AddProduct() {
 
     const [productName , setProductName] = useState('')
-  const [quantity , setQuantity] = useState(0)
-  const [price , setPrice] = useState(0)
+  const [quantity , setQuantity] = useState()
+  const [price , setPrice] = useState()
   const [category , setCategory] = useState('')
 
   let handleProductName = (e)=>{
@@ -46,29 +46,29 @@ function AddProduct() {
 
         <div className='bg-blue-300 h-[100vh] flex justify-center items-center'>
     <div className=' border rounded-[5px] w-[18rem]  min-h-[22rem] bg-white float-left'>
-      <div className='text-center font-bold text-xl mt-3 mb-3'>Add Product</div>
+      <div className='mt-3 mb-3 text-xl font-bold text-center'>Add Product</div>
       <div className='mt-2 text-center'>
        
-        <input type="text" className='border border-b-blue-300 outline-none text-lg rounded pl-2' placeholder='Product Name' onChange={handleProductName} value={productName} />
+        <input type="text" className='pl-2 text-lg border rounded outline-none border-b-blue-300' placeholder='Product Name' onChange={handleProductName} value={productName} />
       </div>
       <div className='mt-2 text-center'>
        
-        <input type="number" className='border border-b-blue-300 outline-none text-lg rounded pl-2 appearance-none' placeholder='Quantity' onChange={handleQuantity} value={quantity}/>
+        <input type="number" className='pl-2 text-lg border rounded outline-none appearance-none border-b-blue-300' placeholder='Quantity' onChange={handleQuantity} value={quantity}/>
       </div>
       <div className='mt-2 text-center'>
        
-        <input type="number" className='border border-b-blue-300 outline-none text-lg rounded pl-2 appearance-none' placeholder='Price'onChange={handlePrice} value={price}   />
+        <input type="number" className='pl-2 text-lg border rounded outline-none appearance-none border-b-blue-300' placeholder='Price'onChange={handlePrice} value={price}   />
       </div>
       <div className='mt-2 text-center'>
        
-        <input type="text" className='border border-b-blue-300 outline-none text-lg rounded pl-2' placeholder='Category'onChange={handleCategory} value={category}  />
+        <input type="text" className='pl-2 text-lg border rounded outline-none border-b-blue-300' placeholder='Category'onChange={handleCategory} value={category}  />
       </div>
      
-      <div className='text-center mt-5'>
+      <div className='mt-5 text-center'>
         <button className='p-3 bg-blue-500 border rounded' onClick={handleSaveProduct}>save</button>
       </div>
       <div className='mt-3'>
-        <p className='text-center text-red-700 font-bold'>Don't use "/" in all fields</p>
+        <p className='font-bold text-center text-red-700'>Don't use "/" in all fields</p>
       </div>
     </div>
     </div>

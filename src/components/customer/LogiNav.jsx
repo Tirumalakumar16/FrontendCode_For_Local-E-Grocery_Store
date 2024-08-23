@@ -9,9 +9,11 @@ function LogiNav({ search, handleSearch }) {
   const [roles, setRoles] = useState([]);
   let check = JSON.parse(localStorage.getItem("navBarResult"));
 
-  // console.log(check);
-  // setR oles(check)
-  // console.log(roles);
+ 
+//
+//  //this is for the navbar roles to decide which navbar to show and which to hide
+//  // this will be called when the user logs in
+//  // this will store the roles in the local storage
   useEffect(() => {
     setRoles(check.roles.split(","));
   }, []);
@@ -28,13 +30,13 @@ function LogiNav({ search, handleSearch }) {
   };
   return (
     <>
-      <div className="flex  items-center flex-nowrap   bg-gray-600 ">
+      <div className="flex items-center bg-gray-600 flex-nowrap ">
         {doesContain() ? (
           <>
             <div className="navbar ">
               <div className="dropdown ">
                 <button className="dropbtn">
-                  <i className="fa-solid fa-bars text-2xl"></i>
+                  <i className="text-2xl fa-solid fa-bars"></i>
                 </button>
                 <div className="dropdown-content">
                   <div className="text-start ml-[4px] font-bold text-lg text-black mt-[5px] underline">
@@ -46,14 +48,13 @@ function LogiNav({ search, handleSearch }) {
                     Cart
                   </div>
                   <a href="/cart">Cart details</a>
-                  
+
                   <div className="text-start ml-[4px] font-bold text-lg text-black mt-[5px] underline">
                     Orders
                   </div>
                   <a href="/orders">Your Orders</a>
-                 
-                 </div>
-                 </div>
+                </div>
+              </div>
             </div>
             <div>
               <a
@@ -71,7 +72,7 @@ function LogiNav({ search, handleSearch }) {
                 Cart
               </Link>
             </div>
-            <div className="flex  items-center  bg-gray-600     ">
+            <div className="flex items-center bg-gray-600 ">
               <div className="navbar ">
                 <div className="dropdown ">
                   <button className="dropbtn">Profile</button>
@@ -79,7 +80,6 @@ function LogiNav({ search, handleSearch }) {
                     <a href="/saveDetails">Save profile</a>
                     <a href="/profile">Profile</a>
                     <a href="/changePassword">Change Password</a>
-
                   </div>
                 </div>
               </div>
@@ -116,7 +116,7 @@ function LogiNav({ search, handleSearch }) {
             <div className="navbar ">
               <div className="dropdown ">
                 <button className="dropbtn">
-                  <i className="fa-solid fa-bars text-2xl"></i>
+                  <i className="text-2xl fa-solid fa-bars"></i>
                 </button>
                 <div className="dropdown-content">
                   <div className="text-start ml-[4px] font-bold text-lg text-black mt-[5px] underline">
@@ -124,8 +124,6 @@ function LogiNav({ search, handleSearch }) {
                   </div>
                   <a href="/saveAddress">Save Address</a>
                   <a href="/addresses">Addresses</a>
-                
-          
                 </div>
               </div>
             </div>
@@ -137,7 +135,7 @@ function LogiNav({ search, handleSearch }) {
                 Home
               </a>
             </div>
-            <div className="flex  items-center   bg-gray-600     ">
+            <div className="flex items-center bg-gray-600 ">
               <div className="navbar ">
                 <div className="dropdown ">
                   <button className="dropbtn">Profile</button>
@@ -149,7 +147,7 @@ function LogiNav({ search, handleSearch }) {
                 </div>
               </div>
             </div>
-            <div className="flex  items-center   bg-gray-600     ">
+            <div className="flex items-center bg-gray-600 ">
               <div className="navbar ">
                 <div className="dropdown ">
                   <button className="dropbtn">Product</button>
@@ -159,7 +157,7 @@ function LogiNav({ search, handleSearch }) {
                 </div>
               </div>
             </div>
-            <div className="flex  items-center   bg-gray-600     ">
+            <div className="flex items-center bg-gray-600 ">
               <div className="navbar ">
                 <div className="dropdown ">
                   <button className="dropbtn">Shop</button>

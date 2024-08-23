@@ -45,7 +45,9 @@ function Registration() {
     ).then((Response)=>{
       console.log(Response);
       alert(Response.data)
-      navigate('/login')
+      setTimeout(() => {
+        navigate('/login')
+      }, 1000);
     }).catch(message => console.log(message))
   }
  
@@ -115,9 +117,9 @@ function Registration() {
             </div>
             <div className="text-sm ml-[30px] mt-[1rem]">
               Already have an account? 
-              <span className="text-green-700"> 
+              <span className="text-green-700 underline"> 
                 <a href="/login" >
-                   Login
+                   <strong>Login</strong>
                 </a>
               </span>
             </div>
