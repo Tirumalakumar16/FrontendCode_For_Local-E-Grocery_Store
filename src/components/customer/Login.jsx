@@ -40,7 +40,7 @@ function Login() {
       `http://localhost:8888/www.localGrocery.com/identity/api/identity`
     )
       .then((response) => {
-        // console.log(response.data);
+        console.log(response.data);
         localStorage.setItem("navBarResult", JSON.stringify(response.data));
       })
       .catch((message) => console.log(message));
@@ -68,7 +68,7 @@ function Login() {
           navigate("/home");
         }, 500);
 
-        console.log(response.data);
+        //console.log(response.data);
       })
       .catch(() => {
         alert("username or password is wrong");
@@ -78,11 +78,11 @@ function Login() {
     <>
       <NavBar />
 
-      <div className="flex flex-col items-center justify-center registration">
+      <div className="flex flex-col items-center justify-center h-screen registration">
         <p className="font-bold mb-[15px] text-xl">
           Welcome To Local Grocery Store
         </p>
-        <div className=" border rounded-[5px] w-[19rem]  h-[20rem] bg-white   ">
+        <div className=" border rounded-[5px] w-[19rem]  h-[20rem] bg-white  ">
           <div className="p-[18px] text-2xl font-bold text-center">Login</div>
           <div>
             <form>
